@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: amoury.com
+      http: 
+        paths:
+          - path: /api/blog
+            backend:
+              serviceName: blog-service
+              servicePort: 3000
